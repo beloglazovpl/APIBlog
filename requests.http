@@ -1,0 +1,47 @@
+@baseUrl = http://localhost:8000/api
+
+# получение всех статей
+GET {{baseUrl}}/article/
+Content-Type: application/json
+
+###
+
+# получение статьи с комментариями
+GET {{baseUrl}}/article/2/
+Content-Type: application/json
+
+###
+
+# добавление статьи
+POST {{baseUrl}}/article/
+Content-Type: application/json
+
+{
+    "name": "Article 5",
+    "text": "text 5"
+}
+
+###
+
+# удаление статьи
+DELETE {{baseUrl}}/article/1/
+Content-Type: application/json
+
+###
+
+# добавление комментария
+POST {{baseUrl}}/comment/
+Content-Type: application/json
+Authorization: Token 477ced2708bc8e54cba1cb55b88f56c6feb85817
+
+{
+    "article": 2,
+    "text": "comment test2",
+    "parent": 7
+}
+
+###
+
+# получение всех комментариев для комментария 3 уровня
+GET {{baseUrl}}/comment/9/
+Content-Type: application/json
